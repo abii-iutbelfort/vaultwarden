@@ -7,7 +7,7 @@ services:
     restart: always
     user: ${PUID}:${PGID}
     environment:
-      DOMAIN: vaultwarden.${DOMAIN}
+      DOMAIN: ${DOMAIN}
       SIGNUPS_ALLOWED: "true"
       ADMIN_TOKEN: ${ADMIN_TOKEN}
       ORG_EVENTS_ENABLED: "true"
