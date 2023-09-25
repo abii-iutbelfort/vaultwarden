@@ -1,4 +1,4 @@
-vaultwarden.{$DOMAIN}:443 {
+{$DOMAIN}:443 {
   log {
     output file {$LOG_FILE} {
       roll_size 10MB
@@ -9,20 +9,6 @@ vaultwarden.{$DOMAIN}:443 {
   tls {$EMAIL}
   reverse_proxy /notifications/hub vaultwarden:3012
   reverse_proxy vaultwarden:80 {
-    header_up X-Real-IP {remote_host}
-  }
-}
-
-adminer.{$DOMAIN}:443 {
-  log {
-    output file {$LOG_FILE} {
-      roll_size 10MB
-      roll_keep 10
-    }
-  }
-  
-  tls {$EMAIL}
-  reverse_proxy adminer:8080 {
     header_up X-Real-IP {remote_host}
   }
 }
