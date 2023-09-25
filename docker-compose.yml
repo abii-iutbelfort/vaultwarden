@@ -5,8 +5,17 @@ services:
     image: vaultwarden/server:latest
     container_name: vaultwarden
     restart: always
+    user: 1000:1000
     environment:
       DOMAIN: "https://vaultwarden.abiibelfort.fr"
+      SIGNUPS_ALLOWED: "false"
+      ORG_EVENTS_ENABLED: "true"
+      SIGNUPS_VERIFY: "false"
+      TRASH_AUTO_DELETE_DAYS: "30"
+      LOGIN_RATELIMIT_MAX_BURST: "10"
+      ADMIN_RATELIMIT_MAX_BURST: "3"
+      ADMIN_SESSION_LIFETIME: "20"
+      
     volumes:
       - ./vw-data:/data
 
